@@ -211,8 +211,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] == _rwMemory[rop] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] == _rwMemory[rop] ? 1 : 0;
 
 		return 4;
 	}
@@ -224,8 +223,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] == rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] == rop ? 1 : 0;
 
 		return 4;
 	}
@@ -237,8 +235,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop == _rwMemory[rop] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop == _rwMemory[rop] ? 1 : 0;
 
 		return 4;
 	}
@@ -250,8 +247,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop == rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop == rop ? 1 : 0;
 
 		return 4;
 	}
@@ -263,8 +259,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] == _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] == _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -276,8 +271,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] == _rwMemory[rop] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] == _rwMemory[rop] ? 1 : 0;
 
 		return 4;
 	}
@@ -289,8 +283,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop == _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop == _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -302,8 +295,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] == rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] == rop ? 1 : 0;
 
 		return 4;
 	}
@@ -315,8 +307,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] == _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] == _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -328,8 +319,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] < _rwMemory[rop] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] < _rwMemory[rop] ? 1 : 0;
 
 		return 4;
 	}
@@ -341,8 +331,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] < rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] < rop ? 1 : 0;
 
 		return 4;
 	}
@@ -354,8 +343,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop < _rwMemory[rop] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop < _rwMemory[rop] ? 1 : 0;
 
 		return 4;
 	}
@@ -367,8 +355,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop < rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop < rop ? 1 : 0;
 
 		return 4;
 	}
@@ -380,8 +367,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] < _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] < _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -393,8 +379,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] < rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] < rop ? 1 : 0;
 
 		return 4;
 	}
@@ -406,8 +391,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop < _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop < _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -419,8 +403,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] < rop ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] < rop ? 1 : 0;
 
 		return 4;
 	}
@@ -432,8 +415,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] < _rwMemory[rop + _relativeBase] ? 1 : 0;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] < _rwMemory[rop + _relativeBase] ? 1 : 0;
 
 		return 4;
 	}
@@ -697,8 +679,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] + _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] + _rwMemory[rop];
 		return 4;
 	}
 
@@ -709,8 +690,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] + rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] + rop;
 		return 4;
 	}
 
@@ -721,8 +701,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop + _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop + _rwMemory[rop];
 		return 4;
 	}
 
@@ -733,8 +712,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop + rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop + rop;
 		return 4;
 	}
 
@@ -745,8 +723,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] + _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] + _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 
@@ -757,8 +734,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] + _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] + _rwMemory[rop];
 		return 4;
 	}
 
@@ -769,8 +745,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop + _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop + _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 
@@ -781,8 +756,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] + rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] + rop;
 		return 4;
 	}
 
@@ -793,8 +767,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] + _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] + _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 
@@ -805,8 +778,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] * _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] * _rwMemory[rop];
 		return 4;
 	}
 
@@ -817,8 +789,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] * rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] * rop;
 		return 4;
 	}
 
@@ -829,8 +800,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop * _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop * _rwMemory[rop];
 		return 4;
 	}
 
@@ -841,8 +811,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop * rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop * rop;
 		return 4;
 	}
 
@@ -853,8 +822,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop] * _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop] * _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 
@@ -865,8 +833,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] * _rwMemory[rop];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] * _rwMemory[rop];
 		return 4;
 	}
 
@@ -877,8 +844,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] * rop;
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] * rop;
 		return 4;
 	}
 
@@ -889,8 +855,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = lop * _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = lop * _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 
@@ -901,8 +866,7 @@ class IntcodeVM
 		let rop = _rwMemory[_instructionPointer + 2];
 		let sop = _rwMemory[_instructionPointer + 3];
 
-		let rba = (_register[2] == 2 ? _relativeBase : 0);
-		_rwMemory[sop + rba] = _rwMemory[lop + _relativeBase] * _rwMemory[rop + _relativeBase];
+		_rwMemory[sop + _register[2] / 2 * _relativeBase] = _rwMemory[lop + _relativeBase] * _rwMemory[rop + _relativeBase];
 		return 4;
 	}
 	#endregion
